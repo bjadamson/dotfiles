@@ -7,7 +7,7 @@ set softtabstop=2 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set ruler         " show column
 set sw=2          " set shift width to two
 :set et           " convert tabs to spaces (short for expandtabs)
-set backspace=indent, eol, start " enable sensible back-space behavior
+set backspace=indent,eol,start " enable sensible back-space behavior
 set expandtab     " insert spaces when hitting TABs
 set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent
