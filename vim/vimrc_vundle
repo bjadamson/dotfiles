@@ -1,0 +1,11 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+"execute pathogen#infect()
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+" My Bundles here:
+" Bundle 'tpope/vim-rails.git'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'

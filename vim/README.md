@@ -1,12 +1,13 @@
 What is this? What is it for??
 -----------
-My unix dotfile repository!
+My unix .config file repository!
 Consolidating all my linux based files into one git repository. This has the
 advantage that if I ever edit any of the files, I only need to update one
 repository, and only have one repository to keep up to date on the various
 unix based computers I use:
   
 > It also means it's very easy to get setup on a new machine.
+
 > This require that git and python are installed on the host machine.
 
 How To use

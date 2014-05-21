@@ -1,0 +1,2 @@
+source ~/.vim/vimrc_vundle
+source ~/.vim/vimrc_common

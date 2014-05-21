@@ -1,0 +1,28 @@
+[user]
+	name = Benjamin Adamson
+	email = adamson.benjamin@gmail.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.git-excludesfile
+[alias]
+  co = checkout
+	cam = commit -am
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	last = cat-file commit HEAD
+	l = "log --pretty=format:'%h %ad  %s%x09%ae' --date=short"
+  type = cat-file -t
+  dump = cat-file -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[push]
+	default = simple
+[apply]
+	whitespace = fix
+[rerere]
+	enabled = true
+[rebase]
+	autosquash = true
