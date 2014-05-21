@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2.7
 import os, sys
 
 def create_symlink(source, destination):
@@ -12,8 +12,7 @@ class SymlinkCopier:
         self.tuples = tuples
 
     def remove_previous(self):
-    """For whatever reason, islink always returns false.
-    """
+        """For whatever reason, islink always returns false."""
         for pair in self.tuples:
             source, dest = pair
             source_file = self.path_prefix + source
