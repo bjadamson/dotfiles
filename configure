@@ -1,50 +1,32 @@
 #!/usr/bin/env python2.7
 import os, sys
 
-def create_symlink(source, destination):
-    print "Creating symlink on disk at'{0}' -> '{1}'".format(destination, source)
-    os.system('ln -s ' + source + ' ' + destination)
+def symlink_vim(prefix):
+    dest = '~/.vim'
+    val = os.system('unlink ' + dest)
+    val = os.system('ln -s ' + prefix + '/vim ' + dest)
+    print "val '" + str(val) + "'"
 
-class SymlinkCopier:
-    def __init__(self, os, path_prefix, tuples):
-        self.os = os
-        self.path_prefix = path_prefix
-        self.tuples = tuples
+def symlink_git(prefix):
+    dest = '~/.gitconfig'
+    val = os.system('unlink ' + dest)
+    val = os.system('ln -s ' + prefix + '/git/gitconfig ' + dest)
+    print "val '" + str(val) + "'"
 
-    def remove_previous(self):
-        """For whatever reason, islink always returns false."""
-        for pair in self.tuples:
-            source, dest = pair
-            source_file = self.path_prefix + source
-            if self.os.path.islink(source_file):
-                print "Unlinking file '" + source_file + "'"
-                self.os.unlink(source_file)
-
-    def create_symlinks(self):
-        for pair in self.tuples:
-            source, dest = pair
-            source_file = self.path_prefix + source
-            create_symlink(source_file, dest)
-
-    def debug(self):
-        for pair in self.tuples:
-            source, dest = pair
-            print "tuple '{0}'".format(pair)
+def symlink_fish(prefix):
+    dest = '~/.config/fish'
+    val = os.system('rm -rf ' + dest)
+    val = os.system('ln -s ' + prefix + '/fish ' + dest)
+    print "val '" + str(val) + "'"
 
 def main(argv):
-    prefix = sys.path[0] + os.sep
-    print 'Installing vundle'
-    os.system('git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
+    prefix = sys.path[0]
+    #os.system('git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
 
-    git_tuple = ('./git/gitconfig', '~/.gitconfig')
-    vim_tuple = ('./vim/', '~/.vim')
-    vim_tuple = ('./fish/', '~/.config/fish')
-    list_tuples = [git_tuple, vim_tuple]
-
-    copier = SymlinkCopier(os, prefix, list_tuples)
-    copier.debug()
-    copier.remove_previous()
-    copier.create_symlinks()
+    # ln -s /path/to/file /path/to/symlink
+    symlink_vim(prefix)
+    symlink_git(prefix)
+    symlink_fish(prefix)
     print "Done"
 
 main(sys.argv)
