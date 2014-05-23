@@ -1,34 +1,49 @@
 #!/usr/bin/env python2.7
 import os, sys
+from os.path import expanduser
+import shutil
 
-def symlink_vim(prefix):
-    dest = '~/.vim'
-    val = os.system('unlink ' + dest)
-    val = os.system('ln -s ' + prefix + '/vim ' + dest)
+def symlink_vim(prefix, homedir):
+    dst = homedir + '/.vim'
+    val = os.system('unlink ' + dst)
+    os.symlink(prefix + '/vim', dst)
     print "val '" + str(val) + "'"
 
-def symlink_git(prefix):
-    dest = '~/.gitconfig'
-    val = os.system('unlink ' + dest)
-    val = os.system('ln -s ' + prefix + '/git/gitconfig ' + dest)
+def clone_vundle(homedir):
+    dst = homedir + '/.vim/bundle/Vundle.vim'
+    print dst
+    if os.path.exists(dst):
+        shutil.rmtree(dst)
+    os.system('git clone https://github.com/gmarik/Vundle.vim.git ' + dst)
+
+def symlink_git(prefix, homedir):
+    dst = homedir + '/.gitconfig'
+    if os.path.islink(dst):
+        val = os.unlink(dst)
+    val = os.symlink(prefix + '/git/gitconfig', dst)
     print "val '" + str(val) + "'"
 
-def symlink_fish(prefix):
-    dest = '~/.config/fish'
-    val = os.system('rm -rf ' + dest)
-    val = os.system('ln -s ' + prefix + '/fish ' + dest)
+def symlink_fish(prefix, homedir):
+    dst = homedir + '/.config/fish'
+    if os.path.islink(dst):
+        os.unlink(dst)
+    val = os.symlink(prefix + '/fish', dst)
     print "val '" + str(val) + "'"
 
+"""AFTER the symlink to the vim directory has been created, we can then only clone the vundle
+package.
+"""
 def main(argv):
-    prefix = sys.path[0]
-    # ln -s /path/to/file /path/to/symlink
-    symlink_vim(prefix)
-    """AFTER the symlink to the vim directory has been created, we can clone the vundle package
-    from github.
+    """The only ordering that matters here is that
+    1. Create VIM symlink
+    2. Clone the vundle package.
     """
-    os.system('git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
-    symlink_git(prefix)
-    symlink_fish(prefix)
+    prefix = sys.path[0]
+    homedir = expanduser("~")
+    symlink_vim(prefix, homedir)
+    clone_vundle(homedir)
+    symlink_git(prefix, homedir)
+    symlink_fish(prefix, homedir)
     print "Done"
 
 main(sys.argv)
