@@ -1,4 +1,4 @@
-set -x PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/git/bin $PATH
+set -x PATH /usr/local/bin /bin /usr/sbin /sbin /usr/local/git/bin $PATH
 . ~/.config/fish/u.fish
 . ~/.config/fish/l.fish
 . ~/.config/fish/work.fish
