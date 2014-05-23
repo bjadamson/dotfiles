@@ -1,3 +1,4 @@
+set -x PATH /apollo/env/SDETools/bin $PATH
 function bb
   brazil-build
 end
