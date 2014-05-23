@@ -38,6 +38,7 @@ def main(argv):
 
     git_tuple = ('./git/gitconfig', '~/.gitconfig')
     vim_tuple = ('./vim/', '~/.vim')
+    vim_tuple = ('./fish/', '~/.config/fish')
     list_tuples = [git_tuple, vim_tuple]
 
     copier = SymlinkCopier(os, prefix, list_tuples)
