@@ -1,5 +1,5 @@
 " Load the other 'vimrc' files
-source ./vimrc_vundle
+source ~/.vim/vimrc_vundle
 
 :syntax on        " enable syntax high-lighting
 :set number       " enable line numbers 
@@ -18,3 +18,4 @@ set autoindent
 highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
 match OverLength /\%101v.\+/
 set directory=/tmp " vim swap files get put here.
+set shell=/bin/bash " This is to work-around a bug in vundle with the fish terminal.

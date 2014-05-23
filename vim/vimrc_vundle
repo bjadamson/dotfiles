@@ -1,7 +1,14 @@
-set nocompatible " be iMproved
-filetype off     " required!
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
 
-set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle
-call vundle#begin()               " initialize vundle
+" All vim plugins must be loaded between the begin() and end()
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle, required
+" List of plugins
+Plugin 'davidhalter/jedi-vim'
+call vundle#end()
+
+filetype plugin indent on
