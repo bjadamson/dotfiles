@@ -33,7 +33,9 @@ class SymlinkCopier:
 
 def main(argv):
     prefix = sys.path[0] + os.sep
-    print "prefix '{0}'".format(prefix)
+    print 'Installing vundle'
+    os.system('git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
+
     git_tuple = ('./git/gitconfig', '~/.gitconfig')
     vim_tuple = ('./vim/', '~/.vim')
     list_tuples = [git_tuple, vim_tuple]
