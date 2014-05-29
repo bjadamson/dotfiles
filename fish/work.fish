@@ -30,6 +30,10 @@ function bba
   bbt
 end
 
+function bbr
+  brazil-build release
+end
+
 function bbtia
   brazil-build test-integration-assert
 end
