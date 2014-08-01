@@ -45,3 +45,7 @@ end
 function ssh_ba
   ssh badamson.desktop.amazon.com
 end
+
+function btpt
+  /apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool
+end

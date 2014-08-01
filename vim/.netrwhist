@@ -1,6 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/badamson/github/dotfiles/vim/bundle/vundle'
-let g:netrw_dirhist_2='/Users/badamson/github/dotfiles/vim/bundle/Vundle.vim'
-let g:netrw_dirhist_3='/Users/badamson/github/dotfiles/vim/bundle'
-let g:netrw_dirhist_4='/Users/badamson/github/dotfiles/vim/bundle/Vundle.vim'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/rhel5pdi/workplace/badamson/AaaProxy/src/AaaServiceProxy/src/com/amazon/aaa/bootstrap/aaaserviceproxy'
+let g:netrw_dirhist_2='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/branches'
+let g:netrw_dirhist_3='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/hooks'
+let g:netrw_dirhist_4='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/info'
+let g:netrw_dirhist_5='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/logs'
+let g:netrw_dirhist_6='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/objects'
+let g:netrw_dirhist_7='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/refs'
+let g:netrw_dirhist_8='/rhel5pdi/workplace/badamson/AaaProxy/repo/AaaServiceProxy.git/rr-cache'
+let g:netrw_dirhist_9='/rhel5pdi/home/badamson/github/vim-colors-solarized/colors'
