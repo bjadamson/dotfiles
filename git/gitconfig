@@ -4,7 +4,7 @@
 [color]
   ui = auto
 [core]
-  excludesfile = ~/.git-excludesfile
+  excludesfile = ~/.config/git/ignore
 	pager = less -FMRiX
 [alias]
   co = checkout

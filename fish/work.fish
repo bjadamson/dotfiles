@@ -49,3 +49,7 @@ end
 function btpt
   /apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool
 end
+
+function kp
+  kinit -f
+end
