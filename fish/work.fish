@@ -42,7 +42,7 @@ function bbptc
   brazil-build print-testrun-classpath
 end
 
-function ssh_ba
+function sb
   ssh badamson.desktop.amazon.com
 end
 
