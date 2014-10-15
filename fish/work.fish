@@ -34,6 +34,10 @@ function bbr
   brazil-build release
 end
 
+function bws
+  brazil ws --sync --md
+end
+
 function bbtia
   brazil-build test-integration-assert
 end
