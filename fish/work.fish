@@ -20,6 +20,10 @@ function bbt
   brazil-build test
 end
 
+function bbtp
+  brazil-build test --pdb
+end
+
 function bbs
   brazil-build server
 end
@@ -56,4 +60,16 @@ end
 
 function kp
   kinit -f
+end
+
+function ap
+  /apollo/bin/runCommand -a Preactivate -e $argv[1]
+end
+
+function aa
+  /apollo/bin/runCommand -a Activate -e $argv[1]
+end
+
+function ad
+  /apollo/bin/runCommand -a Deactivate -e $argv[1]
 end
