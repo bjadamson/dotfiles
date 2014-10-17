@@ -1,31 +1,31 @@
 set -x PATH /apollo/env/SDETools/bin $PATH
 function bb
-  brazil-build
+  brazil-build $argv
 end
 
 function bbap
   bb
-  brazil-build apollo-pkg
+  brazil-build apollo-pkg $argv
 end
 
 function bbc
-  brazil-build clean
+  brazil-build clean $argv
 end
 
 function bbg
-  brazil-build gdb
+  brazil-build gdb $argv
 end
 
 function bbt
-  brazil-build test
+  brazil-build test $argv
 end
 
 function bbtp
-  brazil-build test --pdb
+  brazil-build test --pdb $argv
 end
 
 function bbs
-  brazil-build server
+  brazil-build server $argv
 end
 
 function bba
@@ -35,41 +35,41 @@ function bba
 end
 
 function bbr
-  brazil-build release
+  brazil-build release $argv
 end
 
 function bws
-  brazil ws --sync --md
+  brazil ws --sync --md $argv
 end
 
 function bbtia
-  brazil-build test-integration-assert
+  brazil-build test-integration-assert $argv
 end
 
 function bbptc
-  brazil-build print-testrun-classpath
+  brazil-build print-testrun-classpath $argv
 end
 
 function sb
-  ssh badamson.desktop.amazon.com
+  ssh badamson.desktop.amazon.com $argv
 end
 
 function btpt
-  /apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool
+  /apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool $argv
 end
 
 function kp
-  kinit -f
+  kinit -f $argv
 end
 
 function ap
-  /apollo/bin/runCommand -a Preactivate -e $argv[1]
+  sudo /apollo/bin/runCommand -a Preactivate -e $argv
 end
 
 function aa
-  /apollo/bin/runCommand -a Activate -e $argv[1]
+  sudo /apollo/bin/runCommand -a Activate -e $argv
 end
 
 function ad
-  /apollo/bin/runCommand -a Deactivate -e $argv[1]
+  sudo /apollo/bin/runCommand -a Deactivate -e $argv
 end

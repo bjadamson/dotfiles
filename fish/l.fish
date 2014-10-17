@@ -1,5 +1,5 @@
 function l
-  ls
+  ls $argv
 end
 
 function ll
