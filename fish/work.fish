@@ -42,6 +42,14 @@ function bws
   brazil ws --sync --md $argv
 end
 
+function bwsr
+  brazil ws --remove -p $argv
+end
+
+function bwsa
+  brazil ws --use -p $argv
+end
+
 function bbtia
   brazil-build test-integration-assert $argv
 end
