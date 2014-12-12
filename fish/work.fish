@@ -12,6 +12,11 @@ function bbc
   brazil-build clean $argv
 end
 
+function cbb
+  clear;
+  bb
+end
+
 function bbg
   brazil-build gdb $argv
 end
