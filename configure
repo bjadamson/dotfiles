@@ -30,6 +30,13 @@ def symlink_fish(prefix, homedir):
     val = os.symlink(prefix + '/fish', dst)
     print "val '" + str(val) + "'"
 
+def symlink_amethyst(prefix, homedir):
+    dst = homedir + '/.config/amethyst'
+    if os.path.islink(dst):
+        os.unlink(dst)
+    val = os.symlink(prefix + '/amethyst', dst)
+    print "val '" + str(val) + "'"
+
 """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
 package.
 """
@@ -44,6 +51,7 @@ def main(argv):
     clone_vundle(homedir)
     symlink_git(prefix, homedir)
     symlink_fish(prefix, homedir)
+    symlink_amethyst(prefix, homedir)
     print "Done"
 
 main(sys.argv)
