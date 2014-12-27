@@ -1,3 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/rhel5pdi/workplace/badamson/DaemonsV2/build/AAAServicePythonClient/AAAServicePythonClient-1.0/RHEL5_64/DEV.STD.PTHREAD/build/lib/python3.3/site-packages/AAAService/com/__pycache__'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/external'
+let g:netrw_dirhist_2='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/layer'
+let g:netrw_dirhist_3='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/mem'
+let g:netrw_dirhist_4='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/client'
+let g:netrw_dirhist_5='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/mem'
+let g:netrw_dirhist_6='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/layer'
+let g:netrw_dirhist_7='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/external'
+let g:netrw_dirhist_8='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/comm'
+let g:netrw_dirhist_9='/rhel5pdi/workplace/badamson/DaemonsV2/src/AaaBeCppProxy/aaa/proxy/config'

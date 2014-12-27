@@ -3,7 +3,7 @@ set nocompatible " Unset compatibility with VI, it's 2014!
 source ~/.vim/vimrc_vundle
 
 syntax on        " enable syntax high-lighting
-set background=light
+set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 set number       " enable line numbers 
