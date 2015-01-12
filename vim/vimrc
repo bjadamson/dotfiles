@@ -21,8 +21,40 @@ set backspace=indent,eol,start " enable sensible back-space behavior
 set expandtab     " insert spaces when hitting TABs
 set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent
+
+" Remap some keys to be less button presses! Thanks Phil
+nmap ;s :sp .<CR>
+nmap ;v :vsp .<CR>
+nmap ;t :ConqueTermSplit bash<CR>
+nmap ;l :set invnumber<CR>
+nmap ;x :x<CR>
+nmap ;w :w<CR>
+nmap ;q :q!<CR>
+" Remap opening NERDTree to something easier
+nmap ;nt :NERDTree<CR>
+" map new escape in insert and visual modes
+inoremap jk <ESC>
+inoremap kj <ESC>
+vnoremap jk <ESC>
+vnoremap kj <ESC>
+cnoremap jk <ESC>
+cnoremap kj <ESC>
+inoremap ;w <ESC>:w<CR>
+inoremap ;x <ESC>:x<CR>
+inoremap ;q <ESC>:q<CR>
+nmap wj <C-w>j
+nmap wk <C-w>k
+nmap wh <C-w>h
+nmap wl <C-w>l
+" timeout between mapped keypresses
+set timeoutlen=200
+
+" http://bpdp.blogspot.com/2012/01/arrows-problem-in-nerdtree-vim-plugin.html
+let g:NERDTreeDirArrows=0
+
 " Set a highlight over text on lines over n column chars.
 highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
 match OverLength /\%101v.\+/
+
 set directory=/tmp " vim swap files get put here.
 set shell=/bin/bash " This is to work-around a bug in vundle with the fish terminal.

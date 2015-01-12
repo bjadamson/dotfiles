@@ -5,10 +5,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'wting/rust.vim'
 
 " List of plugins
+Plugin 'wting/rust.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 filetype plugin indent on
