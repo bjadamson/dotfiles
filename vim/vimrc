@@ -31,7 +31,7 @@ nmap ;x :x<CR>
 nmap ;w :w<CR>
 nmap ;q :q!<CR>
 " Remap opening NERDTree to something easier
-nmap ;nt :NERDTree<CR>
+nmap ;n :NERDTree<CR>
 " map new escape in insert and visual modes
 inoremap jk <ESC>
 inoremap kj <ESC>
