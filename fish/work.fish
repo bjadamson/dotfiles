@@ -1,4 +1,5 @@
 set -x PATH /apollo/env/SDETools/bin $PATH
+set CR_AUTOCLOSE_OPT_OUT true
 function bb
   brazil-build $argv
 end
