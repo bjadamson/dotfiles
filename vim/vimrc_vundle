@@ -12,4 +12,13 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
+" Enable Filetype specific commands
 filetype plugin indent on
+
+" Filetype specific indenting
+autocmd Filetype python setlocal ts=4 sw=4
+autocmd Filetype java setlocal ts=4 sw=4
+autocmd Filetype ruby setlocal ts=2 sw=2
+
+" I actually don't know if this works...
+autocmd Filetype cpp setlocal ts=2 sw=2

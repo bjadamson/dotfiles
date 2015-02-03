@@ -38,7 +38,12 @@ inoremap ;q <ESC>:q<CR>
 
 " These two remap the '`' and the escape keys to refer to one another.
 inoremap ` <ESC>
+cnoremap ` <ESC>
+vnoremap ` <ESC>
+
 inoremap <ESC> `
+cnoremap <ESC> `
+vnoremap <ESC> `
 " timeout between mapped keypresses
 set timeoutlen=200
 
