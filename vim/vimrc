@@ -8,27 +8,44 @@ let g:solarized_termcolors=256
 colorscheme solarized
 set number       " enable line numbers 
 set nowrap        " Don't column wrap the text
-set showmatch     " Show matching brackets
-set ignorecase    " Do case insensitive matching
+set showmatch     " Show matching brackets set ignorecase    " Do case insensitive matching
 set textwidth=99  " lines longer than 99 columns will be broken
 set tabstop=2     " set each tab to width two
 set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
 set softtabstop=2 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set ruler         " show column
 set sw=2          " set shift width to two
-set et           " convert tabs to spaces (short for expandtabs)
+set et            " convert tabs to spaces (short for expandtabs)
 set backspace=indent,eol,start " enable sensible back-space behavior
 set expandtab     " insert spaces when hitting TABs
 set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent
+set hlsearch      " highlight search terms
+set incsearch     " show matches as you type
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:. " highligh white spaces and tabs
+
+" Disable pesty arrow keys (maybe remap them later)
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Faster window navigation, woot!
+map <C-H> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Remap some keys to be less button presses! Thanks Phil
+nnoremap ; :
 nmap ;s :sp .<CR>
 nmap ;v :vsp .<CR>
 nmap ;l :set invnumber<CR>
 nmap ;x :x<CR>
 nmap ;w :w<CR>
 nmap ;q :q!<CR>
+
 " Remap opening NERDTree to something easier
 nmap ;n :NERDTree<CR>
 " map new escape in insert and visual modes
