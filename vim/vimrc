@@ -39,6 +39,7 @@ map <C-l> <C-w>l
 
 " Remap some keys to be less button presses! Thanks Phil
 nnoremap ; :
+nnoremap <leader>; ;
 nmap ;s :sp .<CR>
 nmap ;v :vsp .<CR>
 nmap ;l :set invnumber<CR>
