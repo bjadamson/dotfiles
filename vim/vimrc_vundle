@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'wting/rust.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
 " Enable Filetype specific commands
