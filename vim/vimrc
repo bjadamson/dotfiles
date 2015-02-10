@@ -8,7 +8,7 @@ let g:solarized_termcolors=256
 colorscheme solarized
 set number       " enable line numbers 
 set nowrap        " Don't column wrap the text
-set showmatch     " Show matching brackets set ignorecase    " Do case insensitive matching
+set showmatch     " Show matching brackets
 set textwidth=99  " lines longer than 99 columns will be broken
 set tabstop=2     " set each tab to width two
 set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
@@ -22,6 +22,7 @@ set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent
 set hlsearch      " highlight search terms
 set incsearch     " show matches as you type
+set ignorecase    " Do case insensitive matching
 set smartcase     " case-insensitive EXCEPT if I include an upper case.
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " highligh white spaces and tabs
