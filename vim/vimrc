@@ -22,6 +22,7 @@ set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent
 set hlsearch      " highlight search terms
 set incsearch     " show matches as you type
+set smartcase     " case-insensitive EXCEPT if I include an upper case.
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " highligh white spaces and tabs
 
