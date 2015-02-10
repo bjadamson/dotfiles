@@ -16,6 +16,6 @@ point to files located within this repository.
 
 How To use
 -----------
-# Clone this repository to your ~ directory (ie: /users/badamson/)
-# Invoke './configure'
-# All done!
+1. Clone this repository to your ~ directory (ie: /users/badamson/)
+2. Invoke './configure'
+3. All done!
