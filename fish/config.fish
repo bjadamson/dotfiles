@@ -1,6 +1,4 @@
-. ~/.config/fish/environment.fish
-. ~/.config/fish/u.fish
-. ~/.config/fish/l.fish
-. ~/.config/fish/work.fish
-. ~/.config/fish/recursive_replace.fish
-. ~/.config/fish/rust.fish
+set -x PATH /usr/local/bin /bin /usr/sbin /sbin /usr/local/git/bin $PATH
+set TERM xterm-256color
+
+. ~/.config/fish/amazon_work.fish
