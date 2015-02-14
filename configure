@@ -1,11 +1,12 @@
 #!/usr/bin/env python2.7
 import os, sys
 from os.path import expanduser
+import socket
 import shutil
+import fileinput
 
 def clone_vundle(homedir):
     dst = homedir + '/.vim/bundle/Vundle.vim'
-    print dst
     if os.path.exists(dst):
         shutil.rmtree(dst)
     os.system('git clone https://github.com/gmarik/Vundle.vim.git ' + dst)
@@ -16,6 +17,11 @@ def symlink_thing(prefix, homedir, dotfile, target):
         val = os.unlink(dst)
     val = os.symlink(prefix + target, dst)
     print "val '" + str(val) + "'"
+
+def replace_git_alias_for_work(prefix):
+    dst = prefix + '/.gitconfig'
+    for line in fileinput.input(dst, inplace=True): 
+        print line.replace(r'adamson.benjamin@gmail.com', 'badamson@amazon.com'),
 
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
@@ -32,8 +38,13 @@ def main(argv):
     # Step 2 (now safe to clone vundle)
     clone_vundle(homedir)
 
-    # Step 2. symlink all the other things.
+    # Step 3. symlink git.
     symlink_thing(prefix, homedir, '.gitconfig', '/git/gitconfig')
+    if 'badamson.desktop.amazon.com' in socket.gethostname():
+        print 'Replacing git alias, this is a work image.'
+        replace_git_alias_for_work(homedir)
+
+    # Step 4. symlink the rest of the things.
     symlink_thing(prefix, homedir, '.config/fish', '/fish')
     symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
     print "Done"

@@ -57,6 +57,10 @@ function bwsa
   brazil ws --use -p $argv
 end
 
+function bvs
+  brazil ws --use -vs $argv
+end
+
 function bbtia
   brazil-build test-integration-assert $argv
 end
@@ -71,6 +75,10 @@ end
 
 function btpt
   /apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool $argv
+end
+
+function bbf
+  brazil-build format
 end
 
 function kp
