@@ -1,5 +1,6 @@
 set -x PATH /apollo/env/SDETools/bin $PATH
-set CR_AUTOCLOSE_OPT_OUT true
+set -x PATH /usr/local/eclipse $PATH
+set -x CR_AUTOCLOSE_OPT_OUT true
 
 function bb
   brazil-build $argv
@@ -95,4 +96,8 @@ end
 
 function ad
   sudo /apollo/bin/runCommand -a Deactivate -e $argv
+end
+
+function bpdr
+  cd $argv; git push origin dev:dev release:release; u;
 end
