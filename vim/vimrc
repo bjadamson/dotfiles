@@ -28,10 +28,10 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " highligh white spaces and tabs
 
 " Disable pesty arrow keys (maybe remap them later)
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
 
 " Faster window navigation, woot!
 map <C-H> <C-w>h
