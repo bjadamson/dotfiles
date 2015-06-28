@@ -1,6 +1,6 @@
 set nocompatible " Unset compatibility with VI, it's 2014!
 " Load the other 'vimrc' files
-source ~/.vim/vimrc_vundle
+"source ~/.nvim/nvimrc_vundle
 
 syntax on        " enable syntax high-lighting
 set background=dark

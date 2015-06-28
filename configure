@@ -6,7 +6,7 @@ import shutil
 import fileinput
 
 def clone_vundle(homedir):
-    dst = homedir + '/.vim/bundle/Vundle.vim'
+    dst = homedir + '/.nvim/bundle/Vundle.vim'
     if os.path.exists(dst):
         shutil.rmtree(dst)
     os.system('git clone https://github.com/gmarik/Vundle.vim.git ' + dst)
@@ -28,13 +28,13 @@ def main(argv):
     package.
     """
     """The only ordering that matters here is that
-    1. Create VIM symlink
+    1. Create NVIM symlink
     2. Clone the vundle package.
     """
     prefix = sys.path[0]
     homedir = expanduser("~")
     # Step 1. (see ordering)
-    symlink_thing(prefix, homedir, '.vim', '/vim')
+    symlink_thing(prefix, homedir, '.nvim', '/nvim')
     # Step 2 (now safe to clone vundle)
     clone_vundle(homedir)
 
@@ -47,6 +47,7 @@ def main(argv):
     # Step 4. symlink the rest of the things.
     symlink_thing(prefix, homedir, '.config/fish', '/fish')
     symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
+    symlink_thing(prefix, homedir, '.nvimrc', '/nvim/nvimrc')
     print "Done"
 
 main(sys.argv)
