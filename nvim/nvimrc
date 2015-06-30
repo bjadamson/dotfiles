@@ -27,12 +27,6 @@ set smartcase     " case-insensitive EXCEPT if I include an upper case.
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " highligh white spaces and tabs
 
-" Disable pesty arrow keys (maybe remap them later)
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
-
 " Faster window navigation, woot!
 map <C-H> <C-w>h
 map <C-j> <C-w>j
@@ -64,6 +58,18 @@ vnoremap ` <ESC>
 inoremap <ESC> `
 cnoremap <ESC> `
 vnoremap <ESC> `
+
+" Some key-bindings for navigating between windows in neovim
+" http://neovim.io/doc/user/nvim_terminal_emulator.html
+:tnoremap <A-h> <C-\><C-n><C-w>h
+:tnoremap <A-j> <C-\><C-n><C-w>j
+:tnoremap <A-k> <C-\><C-n><C-w>k
+:tnoremap <A-l> <C-\><C-n><C-w>l
+:nnoremap <A-h> <C-w>h
+:nnoremap <A-j> <C-w>j
+:nnoremap <A-k> <C-w>k
+:nnoremap <A-l> <C-w>l
+
 " timeout between mapped keypresses
 set timeoutlen=200
 
