@@ -54,13 +54,16 @@ inoremap ;q <ESC>:q<CR>
 inoremap ` <ESC>
 cnoremap ` <ESC>
 vnoremap ` <ESC>
+tnoremap ` <ESC>
 
 inoremap <ESC> `
 cnoremap <ESC> `
 vnoremap <ESC> `
+tnoremap <ESC> `
 
 " Some key-bindings for navigating between windows in neovim
 " http://neovim.io/doc/user/nvim_terminal_emulator.html
+:tnoremap <Esc> <C-\><C-n>
 :tnoremap <C-h> <C-\><C-n><C-w>h
 :tnoremap <C-j> <C-\><C-n><C-w>j
 :tnoremap <C-k> <C-\><C-n><C-w>k
