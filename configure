@@ -42,9 +42,8 @@ def main(argv):
     # exists.
     os.system('mkdir -p ~/.vim/bundle')
 
-    fname = prefix + '/.gitconfig'
+    fname = homedir + '/.gitconfig'
     os.system('rm -f %s' % fname)
-    exit(1)
 
     # Step 4. symlink git.
     symlink_thing(prefix, homedir, '.gitconfig', '/git/gitconfig')
