@@ -38,13 +38,21 @@ def main(argv):
     # Step 2 (now safe to clone vundle)
     clone_vundle(homedir)
 
-    # Step 3. symlink git.
+    # Step 3. The solarized theme is hard-coded to the ~/.vim/bundle folder, so make sure it
+    # exists.
+    os.system('mkdir -p ~/.vim/bundle')
+
+    fname = prefix + '/.gitconfig'
+    os.system('rm -f %s' % fname)
+    exit(1)
+
+    # Step 4. symlink git.
     symlink_thing(prefix, homedir, '.gitconfig', '/git/gitconfig')
     if 'badamson.desktop.amazon.com' in socket.gethostname():
         print 'Replacing git alias, this is a work image.'
         replace_git_alias_for_work(homedir)
 
-    # Step 4. symlink the rest of the things.
+    # Step 31. symlink the rest of the things.
     symlink_thing(prefix, homedir, '.config/fish', '/fish')
     symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
     symlink_thing(prefix, homedir, '.nvimrc', '/nvim/nvimrc')
