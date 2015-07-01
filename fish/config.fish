@@ -1,5 +1,10 @@
-set -x PATH /usr/local/bin /bin /usr/sbin /sbin /usr/local/git/bin $PATH
-set -x PATH ~/.linuxbrew/bin/ $PATH
 set TERM xterm-256color
 
-. ~/.config/fish/amazon_work.fish
+# Unset the path, we'll build it all by ourselves!
+#set -e PATH
+
+echo $PATH
+. ~/.config/fish/path.fish
+echo $PATH
+. ~/.config/fish/work/top-level.fish
+echo $PATH

@@ -1,5 +1,4 @@
-set -x PATH /apollo/env/SDETools/bin $PATH
-set -x PATH /usr/local/eclipse $PATH
+source ~/.config/fish/work/path.fish
 set -x CR_AUTOCLOSE_OPT_OUT true
 
 function bb
