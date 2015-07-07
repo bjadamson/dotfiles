@@ -6,7 +6,7 @@ function recursive_replace
   end
 
   echo replacing $argv[1] with $argv[2] ...
-  find . -type f -print0 | xargs -0 sed -i "s/$argv[1]/$argv[2]/g"
+  find . -type f -print | egrep -v '.git' | xargs sed -i "s/$argv[1]/$argv[2]/g"
   echo finished!
 end
 
