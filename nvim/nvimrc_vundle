@@ -12,7 +12,16 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dag/vim-fish'
+
+" Haskell
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-sensible'
+Plugin 'scrooloose/syntastic'
+Plugin 'dag/vim2hs'
+
 call vundle#end()
+
+let g:syntastic_always_populate_loc_list=1
 
 " Enable Filetype specific commands
 filetype plugin indent on

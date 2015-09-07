@@ -1,7 +1,7 @@
 set nocompatible " Unset compatibility with VI, it's 2014!
 " Load the other 'vimrc' files
 source ~/.nvim/nvimrc_vundle
-
+source ~/.nvim/nvimrc_haskell
 syntax on        " enable syntax high-lighting
 set background=dark
 let g:solarized_termcolors=256
@@ -26,6 +26,12 @@ set ignorecase    " Do case insensitive matching
 set smartcase     " case-insensitive EXCEPT if I include an upper case.
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " highligh white spaces and tabs
+
+" Instead of failing command, present dialog if unsaved unchages
+set confirm
+
+" Enable mouse in all modes
+set mouse=a
 
 " Faster window navigation, woot!
 map <C-H> <C-w>h
