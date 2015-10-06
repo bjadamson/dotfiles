@@ -70,7 +70,7 @@ function bbptc
 end
 
 function sb
-  ssh badamson.desktop.amazon.com $argv
+  badamson.aka.corp.amazon.com $argv
 end
 
 function btpt
