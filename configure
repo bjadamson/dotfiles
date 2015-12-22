@@ -63,6 +63,7 @@ def main(argv):
     # Step 5. symlink the rest of the things.
     symlink_thing(prefix, homedir, '.config/fish', '/fish')
     symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
+    symlink_thing(prefix, homedir, '.emacs', '/emacs')
     symlink_thing(prefix, homedir, '.nvimrc', '/nvim/nvimrc')
 
     # Step 6.
