@@ -23,16 +23,25 @@ def replace_git_alias_for_work(prefix):
     for line in fileinput.input(dst, inplace=True): 
         print line.replace(r'adamson.benjamin@gmail.com', 'badamson@amazon.com'),
 
+def install_dependency(name):
+    os.system('sudo apt-get install %s' % name)
+
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
     package.
     """
-    """The only ordering that matters here is that
-    1. Create NVIM symlink
-    2. Clone the vundle package.
+    """The only ordering that matters here is that the NVIM symlink is created before we clone the vundle package.
     """
     prefix = sys.path[0]
     homedir = expanduser("~")
+
+    # Step 0. Ensure '.config' directory exists in user directory.
+    os.system('mkdir -p ~/.config')
+
+    # Step 1. Install dependencies
+    install_dependency('git')
+    install_dependency('fish')
+
     # Step 1. (see ordering)
     symlink_thing(prefix, homedir, '.nvim', '/nvim')
     # Step 2 (now safe to clone vundle)
@@ -47,14 +56,16 @@ def main(argv):
 
     # Step 4. symlink git.
     symlink_thing(prefix, homedir, '.gitconfig', '/git/gitconfig')
-    if 'badamson.desktop.amazon.com' in socket.gethostname():
+    if '.amazon.com' in socket.gethostname():
         print 'Replacing git alias, this is a work image.'
         replace_git_alias_for_work(homedir)
 
-    # Step 31. symlink the rest of the things.
+    # Step 5. symlink the rest of the things.
     symlink_thing(prefix, homedir, '.config/fish', '/fish')
     symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
     symlink_thing(prefix, homedir, '.nvimrc', '/nvim/nvimrc')
+
+    # Step 6.
     print "Done"
 
 main(sys.argv)
