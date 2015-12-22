@@ -41,6 +41,7 @@ def main(argv):
     # Step 1. Install dependencies
     install_dependency('git')
     install_dependency('fish')
+    install_dependency('clsip')
 
     # Step 1. (see ordering)
     symlink_thing(prefix, homedir, '.nvim', '/nvim')
