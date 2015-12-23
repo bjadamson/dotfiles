@@ -23,8 +23,15 @@ def replace_git_alias_for_work(prefix):
     for line in fileinput.input(dst, inplace=True): 
         print line.replace(r'adamson.benjamin@gmail.com', 'badamson@amazon.com'),
 
-def install_dependency(name):
+def install_sys_dependency(name):
+    print "installing system dependency {}".format(name)
     os.system('sudo apt-get install %s' % name)
+    print "done!"
+
+def install_emacs_themes():
+    print "Installing emacs color themes..."
+    os.system('git clone https://github.com/owainlewis/emacs-color-themes.git && cd emacs-color-themes && ./install.sh')
+    print "done!"
 
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
@@ -39,9 +46,10 @@ def main(argv):
     os.system('mkdir -p ~/.config')
 
     # Step 1. Install dependencies
-    install_dependency('git')
-    install_dependency('fish')
-    install_dependency('clsip')
+    install_sys_dependency('git')
+    install_sys_dependency('fish')
+    install_sys_dependency('clisp')
+    install_emacs_themes()
 
     # Step 1. (see ordering)
     symlink_thing(prefix, homedir, '.nvim', '/nvim')
