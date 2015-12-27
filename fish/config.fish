@@ -1,4 +1,4 @@
 set TERM xterm-256color
+emacs --daemon
 
-. ~/.config/fish/editor.fish
 . ~/.config/fish/path.fish
