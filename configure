@@ -33,8 +33,6 @@ def install_everything():
     install.system_dependency('clisp')
     emacs.install_emacs()
 
-
-
 def symlink_directories(prefix, homedir):
     def symlink_gitconfig(prefix, homedir):
         # Here we remove the .gitconfig file, so we can replace it with a symlink to this repo.
@@ -66,7 +64,7 @@ def main(argv):
     vim.clone_vundle(homedir)
 
     if work.is_amazon_hostname(homedir):
-        work.reconfigure_for_amazon(homedir)
+        work.initialize_for_amazon_host(homedir)
     print "Done"
 
 main(sys.argv)
