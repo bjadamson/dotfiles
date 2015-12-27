@@ -3,7 +3,7 @@ import os
 
 def _install_themes():
     print "Installing emacs color themes..."
-    os.system('git clone https://github.com/owainlewis/emacs-color-themes.git && cd emacs-color-themes && ./install.sh')
+    os.system('git clone https://github.com/owainlewis/emacs-color-themes.git && cd emacs && emacs-color-themes && ./install.sh')
     print "done!"
 
 def install_emacs():
