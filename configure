@@ -1,37 +1,56 @@
 #!/usr/bin/env python2.7
-import os, sys
-from os.path import expanduser
-import socket
-import shutil
-import fileinput
-
-def clone_vundle(homedir):
-    dst = homedir + '/.vim/bundle/Vundle.vim'
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
-    os.system('git clone https://github.com/gmarik/Vundle.vim.git ' + dst)
+import os, errno, shutil, sys
+from setup import emacs, install, work, vim
 
 def symlink_thing(prefix, homedir, dotfile, target):
+    def force_symlink(file1, file2):
+        try:
+            os.symlink(file1, file2)
+        except OSError, e:
+            if e.errno == errno.EEXIST:
+                try:
+                    os.remove(file2)
+                    os.symlink(file1, file2)
+                except OSError, e:
+                    if e.errno == errno.EISDIR:
+                        shutil.rmtree(file2)
+                        os.symlink(file1, file2)
+
     dst = homedir + '/' + dotfile
     if os.path.islink(dst):
         val = os.unlink(dst)
-    val = os.symlink(prefix + target, dst)
+    val = force_symlink(prefix + target, dst)
     print "val '" + str(val) + "'"
 
-def replace_git_alias_for_work(prefix):
-    dst = prefix + '/.gitconfig'
-    for line in fileinput.input(dst, inplace=True): 
-        print line.replace(r'adamson.benjamin@gmail.com', 'badamson@amazon.com'),
+def create_directories():
+    # Ensure '.config' directory exists in user directory.
+    os.system('mkdir -p ~/.config')
+    os.system('mkdir -p ~/.vim/bundle')
 
-def install_sys_dependency(name):
-    print "installing system dependency {}".format(name)
-    os.system('sudo apt-get install %s' % name)
-    print "done!"
+def install_everything():
+    install.system_dependency('git')
+    install.system_dependency('fish')
+    install.system_dependency('clisp')
+    emacs.install_emacs()
 
-def install_emacs_themes():
-    print "Installing emacs color themes..."
-    os.system('git clone https://github.com/owainlewis/emacs-color-themes.git && cd emacs-color-themes && ./install.sh')
-    print "done!"
+
+
+def symlink_directories(prefix, homedir):
+    def symlink_gitconfig(prefix, homedir):
+        # Here we remove the .gitconfig file, so we can replace it with a symlink to this repo.
+        fname = homedir + '/.gitconfig'
+        os.system('rm -f %s' % fname)
+        symlink_thing(prefix, homedir, '.gitconfig', '/git/gitconfig')
+
+    # It's important to setup this symlink before we clone the vundles.
+    symlink_thing(prefix, homedir, '.vim', '/vim')
+    symlink_gitconfig(prefix, homedir)
+
+    # Symlink the rest of the things.
+    symlink_thing(prefix, homedir, '.config/fish', '/fish')
+    symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
+    symlink_thing(prefix, homedir, '.emacs', '/emacs/.emacs')
+    symlink_thing(prefix, homedir, '.vimrc', '/vim/vimrc')
 
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
@@ -40,42 +59,14 @@ def main(argv):
     """The only ordering that matters here is that the VIM symlink is created before we clone the vundle package.
     """
     prefix = sys.path[0]
-    homedir = expanduser("~")
+    homedir = os.path.expanduser("~")
 
-    # Step 0. Ensure '.config' directory exists in user directory.
-    os.system('mkdir -p ~/.config')
+    create_directories()
+    symlink_directories(prefix, homedir)
+    vim.clone_vundle(homedir)
 
-    # Step 1. Install dependencies
-    install_sys_dependency('git')
-    install_sys_dependency('fish')
-    install_sys_dependency('clisp')
-    install_emacs_themes()
-
-    # Step 1. (see ordering)
-    symlink_thing(prefix, homedir, '.vim', '/vim')
-    # Step 2 (now safe to clone vundle)
-    clone_vundle(homedir)
-
-    # Step 3. The solarized theme is hard-coded to the ~/.vim/bundle folder, so make sure it
-    # exists.
-    os.system('mkdir -p ~/.vim/bundle')
-
-    fname = homedir + '/.gitconfig'
-    os.system('rm -f %s' % fname)
-
-    # Step 4. symlink git.
-    symlink_thing(prefix, homedir, '.gitconfig', '/git/gitconfig')
-    if '.amazon.com' in socket.gethostname():
-        print 'Replacing git alias, this is a work image.'
-        replace_git_alias_for_work(homedir)
-
-    # Step 5. symlink the rest of the things.
-    symlink_thing(prefix, homedir, '.config/fish', '/fish')
-    symlink_thing(prefix, homedir, '.config/amethyst', '/amethyst')
-    symlink_thing(prefix, homedir, '.emacs', '/emacs/.emacs')
-    symlink_thing(prefix, homedir, '.vimrc', '/vim/vimrc')
-
-    # Step 6.
+    if work.is_amazon_hostname(homedir):
+        work.reconfigure_for_amazon(homedir)
     print "Done"
 
 main(sys.argv)
