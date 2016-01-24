@@ -15,7 +15,7 @@
 [color "status"]
   added = green
   changed = blue
-  untracked = black
+  untracked = yellow
 [core]
   excludesfile = ~/.config/git/ignore
 	pager = less -FMRiX

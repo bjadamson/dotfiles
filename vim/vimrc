@@ -1,11 +1,9 @@
 set nocompatible " Unset compatibility with VI, it's 2014!
+set t_Co=256
 " Load the other 'vimrc' files
 source ~/.vim/vimrc_vundle
 source ~/.vim/vimrc_haskell
 syntax on        " enable syntax high-lighting
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
 set number       " enable line numbers 
 set nowrap        " Don't column wrap the text
 set showmatch     " Show matching brackets
@@ -83,4 +81,16 @@ highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
 match OverLength /\%101v.\+/
 
 set directory=/tmp " vim swap files get put here.
-set shell=/bin/bash " This is to work-around a bug in vundle with the fish terminal.
+
+""""""""""""""""""""""""""""""""""""""
+" let mouse wheel scroll file contents
+""""""""""""""""""""""""""""""""""""""
+if !has("gui_running")
+    set term=xterm
+    set mouse=a
+    set nocompatible
+    inoremap <Esc>[62~ <C-X><C-E>
+    inoremap <Esc>[63~ <C-X><C-Y>
+    nnoremap <Esc>[62~ <C-E>
+    nnoremap <Esc>[63~ <C-Y>
+endif

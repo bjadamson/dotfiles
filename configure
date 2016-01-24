@@ -22,16 +22,19 @@ def symlink_thing(prefix, homedir, dotfile, target):
     val = force_symlink(prefix + target, dst)
     print "val '" + str(val) + "'"
 
+
 def create_directories():
     # Ensure '.config' directory exists in user directory.
     os.system('mkdir -p ~/.config')
     os.system('mkdir -p ~/.vim/bundle')
+
 
 def install_everything():
     install.system_dependency('git')
     install.system_dependency('fish')
     install.system_dependency('clisp')
     emacs.install_emacs()
+
 
 def symlink_directories(prefix, homedir):
     def symlink_gitconfig(prefix, homedir):
@@ -62,6 +65,7 @@ def main(argv):
     create_directories()
     symlink_directories(prefix, homedir)
     vim.clone_vundle(homedir)
+    install_everything()
 
     if work.is_amazon_hostname(homedir):
         work.initialize_for_amazon_host(homedir)
