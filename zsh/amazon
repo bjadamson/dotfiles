@@ -9,6 +9,8 @@ alias app='sudo /apollo/bin/runCommand -a Preactivate -e $@'
 alias apa='sudo /apollo/bin/runCommand -a Activate -e $@'
 alias apd='sudo /apollo/bin/runCommand -a Deactivate -e $@'
 
+alias debug-test='export LD_LIBRARY_PATH=$(brazil-path testrun.lib) && /apollo/env/GDBStandalone/bin/gdb ./build/test/$@'
+alias assh='/home/badamson/assh $@'
 alias bb='brazil-build $@'
 alias bbap='bb apollo-pkg $@'
 alias bbc='bb clean'
