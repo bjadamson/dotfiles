@@ -26,9 +26,17 @@ def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
     val = force_symlink(prefix + target, dst)
     print "val '" + str(val) + "'"
 
-def create_directories():
+def create_directories(prefix, homedir):
     # Ensure '.config' directory exists in user directory.
     os.system('mkdir -p ~/.config')
+
+    # This is a bit out of place, but for a REASON.
+    # This symlink points to a directory, and line after this installs bundle into
+    # the ~/.vim/bundle directory. If we don't create this symlink first, then the command on the
+    # next line ends up creating the directory, removing the possibility of overriding it with this
+    # symlink.
+    # TL;DR: Just leave the order and shit works. :)
+    symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim/')
     os.system('mkdir -p ~/.vim/bundle')
 
 def install_everything():
@@ -45,14 +53,14 @@ def symlink_directories(prefix, homedir):
         symlink_dotfile_to_target(prefix, homedir, '.gitconfig', '/git/gitconfig')
 
     # It's important to setup this symlink before we clone the vundles.
-    symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim')
+    symlink_dotfile_to_target(prefix, homedir, '.vim/', '/vim/')
     symlink_gitconfig(prefix, homedir)
 
     # Symlink the rest of the things.
     symlink_dotfile_to_target(prefix, homedir, '.config/fish', '/fish')
     symlink_dotfile_to_target(prefix, homedir, '.config/amethyst', '/amethyst')
     symlink_dotfile_to_target(prefix, homedir, '.emacs', '/emacs/.emacs')
-    symlink_dotfile_to_target(prefix, homedir, '.vimrc', '/vim/vimrc')
+    symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim/')
     symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zsh/zshrc')
 
 def main(argv):
@@ -64,7 +72,7 @@ def main(argv):
     prefix = sys.path[0]
     homedir = os.path.expanduser("~")
 
-    create_directories()
+    create_directories(prefix, homedir)
     symlink_directories(prefix, homedir)
     vim.clone_vundle(homedir)
     install_everything()

@@ -7,6 +7,11 @@ def _add_amazon_specific_fish_config_file(homedir):
     with open(homedir + 'fish/config.fish', 'a+') as f:
         f.write('. ~/.config/fish/work/top-level.fish\n')
 
+def _add_amazon_specific_zsh_file(homedir):
+    print "Adding amazon only zsh config"
+    with open(homedir + '.zshrc', 'a') as f:
+        f.write('source $PWD_DOTFILES/amazon')
+
 def _replace_git_alias(prefix):
     print 'Replacing git alias, this is a work image.'
     dst = prefix + '/.gitconfig'
