@@ -4,6 +4,7 @@ source $ZSH_DOTFILES/replace
 alias gd='git diff'
 alias gdc='gd --cached'
 alias gs='git status'
+alias gl='git lola'
 
 # terminal
 alias p='pwd'
