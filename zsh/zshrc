@@ -1,2 +1,2 @@
 export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/
-source main
+source $ZSH_DOTFILES/main

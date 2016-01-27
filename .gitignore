@@ -4,3 +4,5 @@ fish/fishd*
 *.pyc
 /vim/vim
 /vim/.netrwhist
+
+/zsh/zshrc

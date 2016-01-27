@@ -20,7 +20,7 @@ def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
                         shutil.rmtree(destination)
                         os_symlink(target, destination)
 
-    dst = homedir + '/' + dotfile
+    dst = homedir + dotfile
     if os.path.islink(dst):
         val = os.unlink(dst)
     val = force_symlink(prefix + target, dst)
@@ -63,6 +63,13 @@ def symlink_directories(prefix, homedir):
     symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim/')
     symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zsh/zshrc')
 
+def write_zsh_file(dotfiles_directory):
+    with open(dotfiles_directory + '/zshrc', 'w') as f:
+        line1 = "export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/"
+        line2 = "source $ZSH_DOTFILES/main"
+        f.write(line1 + "\n")
+        f.write(line2 + "\n")
+
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
     package.
@@ -70,15 +77,18 @@ def main(argv):
     """The only ordering that matters here is that the VIM symlink is created before we clone the vundle package.
     """
     prefix = sys.path[0]
-    homedir = os.path.expanduser("~")
+    homedir = os.path.expanduser("~") + "/"
+    dotfiles_directory = os.environ['ZSH_DOTFILES']
 
     create_directories(prefix, homedir)
     symlink_directories(prefix, homedir)
+    write_zsh_file(dotfiles_directory)
     vim.clone_vundle(homedir)
     install_everything()
 
+
     if work.is_amazon_hostname(homedir):
-        work.initialize_for_amazon_host("/" + homedir)
+        work.initialize_for_amazon_host(homedir, dotfiles_directory)
     print "Done"
 
 main(sys.argv)

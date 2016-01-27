@@ -1,0 +1,28 @@
+export PATH=$PATH:/apollo/env/SDETools/bin
+export PATH=/apollo/env/SDETools/bin:$PATH
+export PATH=/apollo/env/eclipse:$PATH
+
+export CR_AUTHCLOSE_OPT_OUT=true
+
+alias kp='kinit -f $@'
+alias app='sudo /apollo/bin/runCommand -a Preactivate -e $@'
+alias apa='sudo /apollo/bin/runCommand -a Activate -e $@'
+alias apd='sudo /apollo/bin/runCommand -a Deactivate -e $@'
+
+alias bb='brazil-build $@'
+alias bbap='bb apollo-pkg $@'
+alias bbc='bb clean'
+alias cbb='clear && bb'
+alias bbg='bb gdb $@'
+alias bbf='bb format'
+alias bbt='bb test'
+alias bbs='bb server $@'
+alias bba='bbc && bb && bbt'
+alias bbr='bb release'
+alias bws='brazil ws --sync --md'
+alias bwsr='brazil ws --remove -p $@'
+alias bwsa='brazil ws --use -p $@'
+alias bvs='brazil ws --use -vs $@'
+alias bbtia='bb test-integration-assert'
+alias sb='ssh badamson.desktop.amazon.com'
+alias sbb='ssh badamson.aka.corp.amazon.com'
