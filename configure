@@ -78,7 +78,7 @@ def main(argv):
     install_everything()
 
     if work.is_amazon_hostname(homedir):
-        work.initialize_for_amazon_host(homedir)
+        work.initialize_for_amazon_host("/" + homedir)
     print "Done"
 
 main(sys.argv)
