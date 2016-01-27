@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/badamson/workspace/live/src/AaaCppBoost/build'
-let g:netrw_dirhist_2='/home/badamson/workspace/live/src/AaaCppBoost/build-tools/bin'
-let g:netrw_dirhist_3='/home/badamson/workspace/daemon/src/CCDV/ccdv'
-let g:netrw_dirhist_4='/home/badamson/workspace/daemon/src/AaaBeCppDaemon/build-tools'
-let g:netrw_dirhist_5='/home/benjamin/Downloads/dotfiles/amethyst'
