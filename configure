@@ -3,18 +3,22 @@ import os, errno, shutil, sys
 from setup import emacs, install, work, vim
 
 def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
-    def force_symlink(file1, file2):
+    def os_symlink(target, destination):
+        cmd = 'ln -s {0} {1}'.format(target, destination)
+        print "executing cmd:{0}".format(cmd)
+        os.system(cmd)
+    def force_symlink(target, destination):
         try:
-            os.symlink(file1, file2)
+            os_symlink(target, destination)
         except OSError, e:
             if e.errno == errno.EEXIST:
                 try:
-                    os.remove(file2)
-                    os.symlink(file1, file2)
+                    os.remove(destination)
+                    os_symlink(target, destination)
                 except OSError, e:
                     if e.errno == errno.EISDIR:
-                        shutil.rmtree(file2)
-                        os.symlink(file1, file2)
+                        shutil.rmtree(destination)
+                        os_symlink(target, destination)
 
     dst = homedir + '/' + dotfile
     if os.path.islink(dst):
@@ -22,13 +26,10 @@ def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
     val = force_symlink(prefix + target, dst)
     print "val '" + str(val) + "'"
 
-
 def create_directories():
     # Ensure '.config' directory exists in user directory.
     os.system('mkdir -p ~/.config')
     os.system('mkdir -p ~/.vim/bundle')
-    os.system('mkdir -p ~/.config/zsh/')
-
 
 def install_everything():
     install.system_dependency('git')
@@ -52,7 +53,7 @@ def symlink_directories(prefix, homedir):
     symlink_dotfile_to_target(prefix, homedir, '.config/amethyst', '/amethyst')
     symlink_dotfile_to_target(prefix, homedir, '.emacs', '/emacs/.emacs')
     symlink_dotfile_to_target(prefix, homedir, '.vimrc', '/vim/vimrc')
-    symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zshrc/zshrc')
+    symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zsh/zshrc')
 
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
