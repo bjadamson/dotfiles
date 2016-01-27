@@ -1,0 +1,17 @@
+source $ZSH_DOTFILES/replace
+
+# GIT
+alias gd='git diff'
+alias gdc='gd --cached'
+alias gs='git status'
+
+# terminal
+alias p='pwd'
+alias l='ls'
+alias lt='ls -lt'
+alias rr='replace $1 $2'
+alias u='cd ..'
+alias uu='u && u'
+alias uuu='uu && u'
+alias uuuu='uuu && u'
+alias uuuuu='uuuu && u'

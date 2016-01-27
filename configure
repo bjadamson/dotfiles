@@ -27,6 +27,7 @@ def create_directories():
     # Ensure '.config' directory exists in user directory.
     os.system('mkdir -p ~/.config')
     os.system('mkdir -p ~/.vim/bundle')
+    os.system('mkdir -p ~/.config/zsh/')
 
 
 def install_everything():
