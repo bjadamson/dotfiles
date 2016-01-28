@@ -12,6 +12,7 @@ alias g++='g++-4.9'
 
 # terminal
 alias p='pwd'
+alias c='clear'
 alias l='ls'
 alias lt='ls -lt'
 alias rr='replace $1 $2'
