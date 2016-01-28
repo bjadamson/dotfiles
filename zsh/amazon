@@ -29,11 +29,11 @@ alias bbtia='bb test-integration-assert'
 alias sb='ssh badamson.desktop.amazon.com'
 alias sbb='ssh badamson.aka.corp.amazon.com'
 
-function clear_brazil_pkg_cache {
+alias bcpc=clear_brazil_pkg_cache
+function clear_brazil_pkg_cache() {
   sudo mv /local/brazil-pkg-cache /local/brazil-pkg-cache-deprecated
   sudo rm -rf /local/brazil-pkg-cache-deprecated/* &
   sudo mkdir -p /local/brazil-pkg-cache/packages
   sudo chown builder:amazon /local/brazil-pkg-cache
   sudo chown builder:amazon /local/brazil-pkg-cache/packages
 }
-alias bcpc='clear_brazil_pkg_cache()'
