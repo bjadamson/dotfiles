@@ -1,6 +1,6 @@
-export PATH=$PATH:/apollo/env/SDETools/bin
-export PATH=/apollo/env/SDETools/bin:$PATH
-export PATH=/apollo/env/eclipse:$PATH
+export PATH=$PATH:/apollo/env/SDETools/bin/
+export PATH=$PATH:/apollo/env/envImprovement/bin/
+export PATH=$PATH:/apollo/env/eclipse-4.2/bin/
 
 export CR_AUTHCLOSE_OPT_OUT=true
 
@@ -28,3 +28,12 @@ alias bvs='brazil ws --use -vs $@'
 alias bbtia='bb test-integration-assert'
 alias sb='ssh badamson.desktop.amazon.com'
 alias sbb='ssh badamson.aka.corp.amazon.com'
+
+function clear_brazil_pkg_cache {
+  sudo mv /local/brazil-pkg-cache /local/brazil-pkg-cache-deprecated
+  sudo rm -rf /local/brazil-pkg-cache-deprecated/* &
+  sudo mkdir -p /local/brazil-pkg-cache/packages
+  sudo chown builder:amazon /local/brazil-pkg-cache
+  sudo chown builder:amazon /local/brazil-pkg-cache/packages
+}
+alias bcpc='clear_brazil_pkg_cache()'

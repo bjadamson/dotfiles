@@ -85,16 +85,16 @@ def main(argv):
     homedir = os.path.expanduser("~") + "/"
     os.environ['ZSH_DOTFILES'] = os.environ['HOME'] + '/Downloads/dotfiles/zsh/'
     dotfiles_directory = os.environ['ZSH_DOTFILES']
-    is_home = not work.is_amazon_hostname(homedir)
+    is_work_host = work.is_amazon_hostname(homedir)
 
     create_directories(prefix, homedir)
     symlink_directories(prefix, homedir)
 
-    write_zsh_file(dotfiles_directory, is_home)
+    write_zsh_file(dotfiles_directory, not is_work_host)
     vim.clone_vundle(homedir)
     install_everything()
 
-    if is_home:
+    if is_work_host:
         work.initialize_for_amazon_host(homedir, dotfiles_directory)
     print "Done"
 
