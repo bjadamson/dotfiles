@@ -6,11 +6,16 @@ alias gdc='gd --cached'
 alias gs='git status'
 alias gl='git lola'
 
+# ToolChain
+alias gcc='gcc-4.9'
+alias g++='g++-4.9'
+
 # terminal
 alias p='pwd'
 alias l='ls'
 alias lt='ls -lt'
 alias rr='replace $1 $2'
+alias s='grep -rl $1 $2'
 alias u='cd ..'
 alias uu='u && u'
 alias uuu='uu && u'
