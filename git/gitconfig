@@ -19,7 +19,7 @@
 [core]
   excludesfile = ~/.config/git/ignore
 	pager = less -FMRiX
-	editor = emacs
+	editor = vim
 [alias]
   co = checkout
   cam = commit -am
