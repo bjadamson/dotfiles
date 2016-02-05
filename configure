@@ -47,6 +47,8 @@ def install_everything():
     zsh_command = 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
     os.system(zsh_command)
 
+    os.system("sudo pip install thefuck")
+
 def symlink_directories(prefix, homedir):
     def symlink_gitconfig(prefix, homedir):
         # Here we remove the .gitconfig file, so we can replace it with a symlink to this repo.
