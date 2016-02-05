@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/
+export TERM=xterm
 eval $(thefuck --alias f)
 
 # Path to your oh-my-zsh installation.
