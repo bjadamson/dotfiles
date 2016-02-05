@@ -30,6 +30,7 @@ function push-override-origin() {
 
 # directory shortcuts
 alias cddot='cd ~/Downloads/dotfiles/'
+alias bb=./build.sh
 
 # terminal
 alias p='pwd'
