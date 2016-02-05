@@ -16,6 +16,3 @@ def _replace_git_alias(homedir):
 def initialize_for_amazon_host(homedir, dotfiles_directory):
     _replace_git_alias(homedir)
     _add_amazon_specific_zsh_file(homedir, dotfiles_directory)
-
-def is_amazon_hostname(homedir):
-    return '.amazon.com' in socket.gethostname()
