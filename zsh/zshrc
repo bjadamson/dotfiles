@@ -88,3 +88,4 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $ZSH_DOTFILES/alias
+source $ZSH_DOTFILES/path
