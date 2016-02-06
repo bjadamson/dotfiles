@@ -6,9 +6,18 @@ alias gdc='gd --cached'
 alias gs='git status'
 alias gl='git lola'
 
+alias git-pwn=push-override
+function push-override() {
+  git push "$1 :$2"
+  git push "$1 $2"
+}
+
 # ToolChain
 alias gcc='gcc-4.9'
 alias g++='g++-4.9'
+
+# directory shortcuts
+alias cddot='cd ~/Downloads/dotfiles/'
 
 # terminal
 alias p='pwd'
