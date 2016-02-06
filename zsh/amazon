@@ -1,3 +1,4 @@
+# Amazon specific paths.
 export PATH=$PATH:/apollo/env/SDETools/bin/
 export PATH=$PATH:/apollo/env/envImprovement/bin/
 export PATH=$PATH:/apollo/env/eclipse-4.2/bin/
@@ -9,12 +10,17 @@ alias app='sudo /apollo/bin/runCommand -a Preactivate -e $@'
 alias apa='sudo /apollo/bin/runCommand -a Activate -e $@'
 alias apd='sudo /apollo/bin/runCommand -a Deactivate -e $@'
 
+# C++ debugging fn
 alias debug-test=debug_test_executable
 function debug_test_executable() {
   export LD_LIBRARY_PATH=$(brazil-path testrun.lib)
   /apollo/env/GDBStandalone/bin/gdb "$(pwd)/build/test/$@"
 }
 
+# quick nav
+alias cdbe='cd /home/badamson/workspace/daemon/src/AaaBeCppDaemon/'
+
+# brazil-build
 alias assh='/home/badamson/assh $@'
 alias bb='brazil-build $@'
 alias bbap='bb apollo-pkg $@'
