@@ -6,10 +6,26 @@ alias gdc='gd --cached'
 alias gs='git status'
 alias gl='git lola'
 
+alias gdo=diff-origin
+function diff-origin() {
+  git diff origin/"$1"
+}
+
+alias gdco=diff-origin-cached
+function diff-origin-cached() {
+  git diff --cached origin/"$1"
+}
+
 alias git-pwn=push-override
 function push-override() {
   git push "$1" ':'"$2"
   git push "$1" "$2"
+}
+
+alias git-pwno=push-override-origin
+function push-override-origin() {
+  git push origin ':'"$1"
+  git push origin "$1"
 }
 
 # ToolChain
