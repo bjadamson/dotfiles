@@ -1,6 +1,4 @@
 #!/usr/bin/zsh
-export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/
-eval $(thefuck --alias f)
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USER/.oh-my-zsh
@@ -86,5 +84,6 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/
 source $ZSH_DOTFILES/alias
 source $ZSH_DOTFILES/amazon

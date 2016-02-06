@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 import os, errno, shutil, sys
-from setup import emacs, install, work, vim
+from setup import emacs, install, vim
 
 def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
     def os_symlink(target, destination):
@@ -67,13 +67,6 @@ def symlink_directories(prefix, homedir):
     symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim/')
     symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zsh/zshrc')
 
-def write_zsh_file(dotfiles_directory):
-    with open(dotfiles_directory + '/zshrc', 'w') as f:
-        line1 = "export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/"
-        line2 = "source $ZSH_DOTFILES/main"
-        f.write(line1 + "\n")
-        f.write(line2 + "\n")
-
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
     package.
@@ -88,11 +81,8 @@ def main(argv):
     create_directories(prefix, homedir)
     symlink_directories(prefix, homedir)
 
-    write_zsh_file(dotfiles_directory)
     vim.clone_vundle(homedir)
     install_everything()
-
-    work.initialize_for_amazon_host(homedir, dotfiles_directory)
     print "Done"
 
 main(sys.argv)
