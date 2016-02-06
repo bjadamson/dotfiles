@@ -8,8 +8,8 @@ alias gl='git lola'
 
 alias git-pwn=push-override
 function push-override() {
-  git push "$1 :$2"
-  git push "$1 $2"
+  git push "$1" ':'"$2"
+  git push "$1" "$2"
 }
 
 # ToolChain
