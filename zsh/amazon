@@ -42,9 +42,10 @@ alias sbb='ssh badamson.aka.corp.amazon.com'
 
 alias rm-ap-env=remove-apollo-env
 function remove-apollo-env() {
-  sudo rm -rf "/apollo/env/$1*"
-  sudo rm -rf "/apollo/_env/$1*"
-  sudo rm -rf "/apollo/var/env/$1*"
+  set -x
+  sudo rm -rf /apollo/env/"$1"*
+  sudo rm -rf /apollo/_env/"$1"*
+  sudo rm -rf /apollo/var/env/"$1"*
 }
 
 alias mv-cxx-file=move-cxx-file
