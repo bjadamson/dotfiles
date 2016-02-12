@@ -1,10 +1,22 @@
+//
+// Simple type wrapper generator and convenience macro(s).
+//
+// Macros are super simple wrapper around c++11 using syntax,
+// to allow you to define youri wrappers in a colum format.
+//
+// examples:
+//
+// MAKE_WRAPPER(Price, int);
+// MAKE_WAPPER(Name, std::string);
+// MAKE_WRAPPER(Pluto, std::planet); // Lol
 template<typename T>
 struct typefactory
 {
   using SelfT = typefactory<T>;
   T value_;
 
-  typefactory(typefactory<T> &&) = default;//: value_(std::move(value)) {}
+  typefactory() = delete;
+  typefactory(typefactory<T> &&) = default;
   typefactory(typefactory<T> const&) = default;
 
   T
