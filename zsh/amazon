@@ -40,6 +40,36 @@ alias bbtia='bb test-integration-assert'
 alias sb='ssh badamson.desktop.amazon.com'
 alias sbb='ssh badamson.aka.corp.amazon.com'
 
+alias rm-ap-env=remove-apollo-env
+function remove-apollo-env() {
+  sudo rm -rf "/apollo/env/$1*"
+  sudo rm -rf "/apollo/_env/$1*"
+  sudo rm -rf "/apollo/var/env/$1*"
+}
+
+alias mv-cxx-file=move-cxx-file
+function move-cxx-file() {
+  mv '"$1".h' '"$2".h.'
+  mv '"$1".cpp' '"$2".cpp'
+  rr '"$3""$1".h' '"$4""$1".h'
+}
+
+alias cxx-insert-nested-ns=cxx-insert-nested-ns
+function cxx-insert-nested-ns() {
+  sed -e '/namespace '$1' {/a namespace '$2' {' $3 -e \
+    '/}[ ]*\/\/ '$1'/a } \/\/ '$2'' $3
+}
+
+alias cxx-insert-nested-ns-dir=cxx-insert-nested-ns-dir
+function cxx-insert-nested-ns-dir() {
+  for f in $3*.h; do
+    cxx-insert-nested-ns $1 $2 $f
+  done
+  for f in $3*.cpp; do
+    cxx-insert-nested-ns $1 $2 $f
+  done
+}
+
 alias bcpc=clear_brazil_pkg_cache
 function clear_brazil_pkg_cache() {
   sudo mv /local/brazil-pkg-cache /local/brazil-pkg-cache-deprecated
