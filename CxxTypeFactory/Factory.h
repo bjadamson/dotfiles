@@ -1,3 +1,6 @@
+#include <tuple>
+
+namespace cxxtypefactory {
 //
 // Simple type wrapper generator and convenience macro(s).
 //
@@ -29,12 +32,6 @@ struct typefactory
   operator=(SelfT &&) = default;
 };
 
-template<typename T>
-using TypeF = typefactory<T>;
-
-#define MAKE_WRAPPER(Name, T) using Name = TypeF<T>
-
-#include <tuple>
 template<typename ...T>
 struct MultiTypeFactory
 {
@@ -47,5 +44,13 @@ struct MultiTypeFactory
   V
   values() const { return this->values_; }
 };
+
+template<typename T>
+using TypeF = typefactory<T>;
+
+} // ns cxxtypefactory
+namespace cxxtf = cxxtypefactory;
+
+#define MAKE_WRAPPER(Name, T) using Name = TypeF<T>
 
 #define MAKE_TUPLE_WRAPPER(...) MultiTypeFactory<__VA_ARGS__>;
