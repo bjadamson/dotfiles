@@ -40,6 +40,18 @@ alias bbtia='bb test-integration-assert'
 alias sb='ssh badamson.desktop.amazon.com'
 alias sbb='ssh badamson.aka.corp.amazon.com'
 
+alias bbq=build-quiet
+function build-quiet() {
+  export MAKE_OUTPUT_LEVEL=QUIET
+  bb
+}
+
+alias bbrq=build-release-quiet
+function build-release-quiet() {
+  export MAKE_OUTPUT_LEVEL=QUIET
+  bbc; bbr
+}
+
 alias rm-ap-env=remove-apollo-env
 function remove-apollo-env() {
   set -x
