@@ -2,6 +2,7 @@
 export PATH=$PATH:/apollo/env/SDETools/bin/
 export PATH=$PATH:/apollo/env/envImprovement/bin/
 export PATH=$PATH:/apollo/env/eclipse-4.2/bin/
+export PATH=$PATH:/apollo/env/BrazilThirdPartyTool/bin/
 
 export CR_AUTHCLOSE_OPT_OUT=true
 
