@@ -4,3 +4,4 @@
 * https://github.com/cppformat/cppformat
 * https://github.com/ericniebler/range-v3
 * https://github.com/pfultz2/Tick
+* https://github.com/badair/callable_traits
