@@ -19,7 +19,10 @@ function debug_test_executable() {
 }
 
 # quick nav
+alias cdd='cd /home/badamson/workspace/daemon/src/'
 alias cdbe='cd /home/badamson/workspace/daemon/src/AaaBeCppDaemon/'
+alias cdl='cd /home/badamson/workspace/live/src/'
+alias cdtc='cd /home/badamson/workspace/thinclients/src/'
 
 # brazil-build
 alias assh='/home/badamson/assh $@'
@@ -91,4 +94,12 @@ function clear_brazil_pkg_cache() {
   sudo mkdir -p /local/brazil-pkg-cache/packages
   sudo chown builder:amazon /local/brazil-pkg-cache
   sudo chown builder:amazon /local/brazil-pkg-cache/packages
+}
+
+alias tail-latest-deployment=tail_latest_apollo_deployment_this_machine
+function tail_latest_apollo_deployment_this_machine() {
+  deployment_file=`ls -lat /apollo/var/logs | grep -i deployment -m 1 | cut -d ' ' -f 11`
+  target="/apollo/var/logs/"$deployment_file
+
+  tail -f $target
 }
