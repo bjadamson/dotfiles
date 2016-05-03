@@ -12,6 +12,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dag/vim-fish'
+Plugin 'jeaye/color_coded'
 
 " Haskell
 Plugin 'tpope/vim-unimpaired'
