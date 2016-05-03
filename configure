@@ -66,13 +66,11 @@ def symlink_directories(prefix, homedir):
     symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zsh/zshrc')
 
 def write_zsh_file(dotfiles_directory):
-    with open(dotfiles_directory + '/zshrc', 'w') as f:
-        line1 = "export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/"
-        line2 = "source $ZSH_DOTFILES/main"
-        f.write(line1 + "\n")
-        f.write(line2 + "\n")
-        line0 = "export TERM=xterm"
-        f.write(line0 + "\n")
+    with open(dotfiles_directory + '/zshrc', 'a') as f:
+        line = "export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/"
+        f.write(line + "\n")
+        line = "export TERM=xterm"
+        f.write(line + "\n")
 
 def main(argv):
     """AFTER the symlink to the vim directory has been created, we can then only clone the vundle
