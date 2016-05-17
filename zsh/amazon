@@ -18,11 +18,18 @@ function debug_test_executable() {
   /apollo/env/GDBStandalone/bin/gdb "$(pwd)/build/test/$@"
 }
 
+alias rt=run_test
+function run_test() {
+  export LD_LIBRARY_PATH=$(brazil-path testrun.lib)
+  "./build/test/$@"
+}
+
 # quick nav
 alias cdd='cd /home/badamson/workspace/daemon/src/'
 alias cdbe='cd /home/badamson/workspace/daemon/src/AaaBeCppDaemon/'
 alias cdl='cd /home/badamson/workspace/live/src/'
 alias cdtc='cd /home/badamson/workspace/thinclients/src/'
+alias cdap='cd /apollo/env/$@'
 
 # brazil-build
 alias assh='/home/badamson/assh $@'
