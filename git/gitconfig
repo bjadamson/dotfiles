@@ -17,7 +17,7 @@
   changed = blue
   untracked = yellow
 [core]
-  excludesfile = ~/.config/git/ignore
+  excludesfile = ~/.config/git/excludes
 	pager = less -FMRiX
 	editor = vim
 [alias]
