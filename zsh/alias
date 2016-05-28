@@ -28,10 +28,6 @@ function push-override-origin() {
   git push origin "$1"
 }
 
-# ToolChain
-alias gcc='gcc-4.9'
-alias g++='g++-4.9'
-
 # directory shortcuts
 alias cddot='cd ~/Downloads/dotfiles/'
 
