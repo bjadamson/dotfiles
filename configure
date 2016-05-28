@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 import os, errno, shutil, sys
-from setup import emacs, install, work, vim
+from setup import install, work, vim
 
 def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
     def os_symlink(target, destination):
@@ -42,7 +42,6 @@ def create_directories(prefix, homedir):
 def install_everything():
     install.system_dependency('git')
     install.system_dependency('clisp')
-    emacs.install_emacs()
 
     zsh_command = 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
     os.system(zsh_command)
@@ -63,7 +62,6 @@ def symlink_directories(prefix, homedir):
 
     # Symlink the rest of the things.
     symlink_dotfile_to_target(prefix, homedir, '.config/amethyst', '/amethyst')
-    symlink_dotfile_to_target(prefix, homedir, '.emacs', '/emacs/.emacs')
     symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim/')
     symlink_dotfile_to_target(prefix, homedir, '.zshrc', '/zsh/zshrc')
 
