@@ -1,5 +1,5 @@
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 
 " All vim plugins must be loaded between the begin() and end()
 call vundle#begin()

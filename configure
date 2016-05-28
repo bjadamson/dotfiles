@@ -36,12 +36,12 @@ def create_directories(prefix, homedir):
     # next line ends up creating the directory, removing the possibility of overriding it with this
     # symlink.
     # TL;DR: Just leave the order and shit works. :)
-    symlink_dotfile_to_target(prefix, homedir, '.vim', '/vim/')
+    symlink_dotfile_to_target(prefix, homedir, 'nvim', '/nvim/')
     os.system('mkdir -p ~/.vim/bundle')
 
 def install_everything():
     install.system_dependency('git')
-    install.system_dependency('clisp')
+    install.system_dependency('software-properties-common') # neovim
 
     zsh_command = 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
     os.system(zsh_command)

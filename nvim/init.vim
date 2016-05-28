@@ -2,8 +2,7 @@ set nocompatible " Unset compatibility with VI, it's 2014!
 set t_Co=256
 
 " Load the other 'vimrc' files
-source ~/.vim/vimrc_vundle
-source ~/.vim/vimrc_haskell
+source ~/.config/nvim/vundle
 syntax on        " enable syntax high-lighting
 set number       " enable line numbers 
 set nowrap        " Don't column wrap the text
@@ -18,8 +17,6 @@ set et            " convert tabs to spaces (short for expandtabs)
 set backspace=indent,eol,start " enable sensible back-space behavior
 set expandtab     " insert spaces when hitting TABs
 set shiftround    " round indent to multiple of 'shiftwidth'
-set autoindent
-set hlsearch      " highlight search terms
 set incsearch     " show matches as you type
 set ignorecase    " Do case insensitive matching
 set smartcase     " case-insensitive EXCEPT if I include an upper case.
@@ -87,7 +84,6 @@ set directory=/tmp " vim swap files get put here.
 " let mouse wheel scroll file contents
 """"""""""""""""""""""""""""""""""""""
 if !has("gui_running")
-    set term=xterm
     set mouse=a
     set nocompatible
     inoremap <Esc>[62~ <C-X><C-E>

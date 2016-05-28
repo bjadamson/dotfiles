@@ -6,5 +6,5 @@ fish/fishd*
 /vim/.netrwhist
 
 /zsh/zshrc
-/vim/bundle/
-/vim/undodir/
+/nvim/bundle/
+/nvim/undodir/
