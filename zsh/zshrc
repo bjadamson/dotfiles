@@ -91,5 +91,3 @@ source $ZSH_DOTFILES/alias
 source $ZSH_DOTFILES/path
 export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/
 export TERM=xterm
-export ZSH_DOTFILES=$HOME/Downloads/dotfiles/zsh/
-export TERM=xterm
