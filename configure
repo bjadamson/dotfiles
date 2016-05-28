@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 import os, errno, shutil, sys
-from setup import install, work, vim
+from setup import install, nvim
 
 def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
     def os_symlink(target, destination):
@@ -28,16 +28,16 @@ def symlink_dotfile_to_target(prefix, homedir, dotfile, target):
 
 def create_directories(prefix, homedir):
     # Ensure '.config' directory exists in user directory.
-    os.system('mkdir -p ~/.config')
+    os.system('mkdir -p ~/.config/')
 
     # This is a bit out of place, but for a REASON.
     # This symlink points to a directory, and line after this installs bundle into
-    # the ~/.vim/bundle directory. If we don't create this symlink first, then the command on the
+    # the ~/.nvim/bundle directory. If we don't create this symlink first, then the command on the
     # next line ends up creating the directory, removing the possibility of overriding it with this
     # symlink.
     # TL;DR: Just leave the order and shit works. :)
-    symlink_dotfile_to_target(prefix, homedir, 'nvim', '/nvim/')
-    os.system('mkdir -p ~/.vim/bundle')
+    symlink_dotfile_to_target(prefix, homedir, 'nvim', '.config/nvim/')
+    os.system('mkdir -p ~/.nvim/bundle')
 
 def install_everything():
     install.system_dependency('git')
@@ -56,8 +56,8 @@ def symlink_directories(prefix, homedir):
         symlink_dotfile_to_target(prefix, homedir, '.gitconfig', '/git/gitconfig')
 
     # It's important to setup this symlink before we clone the vundles.
-    symlink_dotfile_to_target(prefix, homedir, '.vim/', '/vim/')
-    symlink_dotfile_to_target(prefix, homedir, '.vimrc', '/vim/vimrc')
+    symlink_dotfile_to_target(prefix, homedir, '.nvim/', '.config/vim/')
+    symlink_dotfile_to_target(prefix, homedir, '.nvimrc', '.config/nvim/init.vim')
     symlink_gitconfig(prefix, homedir)
 
     # Symlink the rest of the things.
@@ -87,7 +87,7 @@ def main(argv):
     symlink_directories(prefix, homedir)
 
     write_zsh_file(dotfiles_directory)
-    vim.clone_vundle(homedir)
+    nvim.clone_vundle(homedir)
     install_everything()
 
     print "Done"
