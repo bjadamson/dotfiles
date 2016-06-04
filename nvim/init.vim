@@ -1,5 +1,6 @@
 set nocompatible " Unset compatibility with VI, it's 2014!
-set t_Co=256
+filetype on
+"set t_Co=256
 
 " Load the other 'vimrc' files
 source ~/.config/nvim/vundle
@@ -73,6 +74,9 @@ set timeoutlen=200
 
 " http://bpdp.blogspot.com/2012/01/arrows-problem-in-nerdtree-vim-plugin.html
 let g:NERDTreeDirArrows=0
+
+" https://github.com/rust-lang/rust.vim
+let g:rustfmt_autosave=1
 
 " Set a highlight over text on lines over n column chars.
 highlight OverLength ctermbg=blue ctermfg=white guibg=#592929

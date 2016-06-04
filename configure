@@ -44,8 +44,12 @@ def install_everything():
     install.system_dependency('git')
     install.system_dependency('software-properties-common') # neovim
 
-    zsh_command = 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-    os.system(zsh_command)
+    # install oh-my-zsh
+    zshc = 'sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+    os.system(zshc)
+
+    curlc = 'curl -sSf https://static.rust-lang.org/rustup.sh | sh'
+    os.system(curlc)
 
     # thefuck, bruh?
     os.system("sudo pip install thefuck")

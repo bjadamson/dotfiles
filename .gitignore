@@ -9,3 +9,6 @@ fish/fishd*
 /zsh/zshrc
 /nvim/bundle/
 /nvim/undodir/
+nvim/.netrwhist
+nvim/bundle/
+nvim/undodir/
