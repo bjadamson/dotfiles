@@ -4,24 +4,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 " All vim plugins must be loaded between the begin() and end()
-call vundle#begin()
+call plug#begin('~/.config/nvim/autoload/plug.vim')
 
 " List of plugins
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'dag/vim-fish'
+Plug 'VundleVim/Vundle.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'dag/vim-fish'
 
-" Haskell
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-sensible'
-Plugin 'scrooloose/syntastic'
-Plugin 'dag/vim2hs'
-
-call vundle#end()
+call plug#end()
 
 let g:syntastic_always_populate_loc_list=1
 

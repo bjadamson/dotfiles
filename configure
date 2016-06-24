@@ -101,7 +101,7 @@ def main(argv):
     """
     prefix = sys.path[0]
     homedir = os.path.expanduser("~") + "/"
-    os.environ['ZSH_DOTFILES'] = os.environ['HOME'] + '/Downloads/dotfiles/zsh/'
+    os.environ['ZSH_DOTFILES'] = os.environ['HOME'] + '/Downloads/dotfiles/zsh'
     dotfiles_directory = os.environ['ZSH_DOTFILES']
 
     create_directories(prefix, homedir)
