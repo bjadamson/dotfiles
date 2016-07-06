@@ -9,3 +9,4 @@
 * https://github.com/solodon4/Mach7
 * https://github.com/OneNoteDev/GoldFish
 * https://github.com/onqtam/doctest
+* https://github.com/ccbrown/needy
