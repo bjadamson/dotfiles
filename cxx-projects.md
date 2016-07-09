@@ -10,3 +10,4 @@
 * https://github.com/OneNoteDev/GoldFish
 * https://github.com/onqtam/doctest
 * https://github.com/ccbrown/needy
+* https://github.com/vinniefalco/Beast
