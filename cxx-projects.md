@@ -12,3 +12,4 @@
 * https://github.com/ccbrown/needy
 * https://github.com/vinniefalco/Beast
 * https://github.com/SuperV1234/ecst
+* https://github.com/KhronosGroup/Vulkan-Hpp
