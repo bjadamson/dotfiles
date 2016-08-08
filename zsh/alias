@@ -32,7 +32,10 @@ function push-override-origin() {
 alias cddot='cd ~/Downloads/dotfiles/'
 alias bb=./bb.bash
 alias bbc=./bbc.bash
+alias bbf=./bbf.bash
 alias bbr=./bbr.bash
+
+alias cbb=./cbb.bash
 
 # terminal
 alias p='pwd'

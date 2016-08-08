@@ -97,7 +97,7 @@ if !has("gui_running")
 endif
 
 " Put plugins and dictionaries in this dir (also on Windows)
-let vimDir = '$HOME/.vim'
+let vimDir = '$HOME/.nvim'
 let &runtimepath.=','.vimDir
 
 " Keep undo history across sessions by storing it in a file
