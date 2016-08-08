@@ -13,3 +13,4 @@
 * https://github.com/vinniefalco/Beast
 * https://github.com/SuperV1234/ecst
 * https://github.com/KhronosGroup/Vulkan-Hpp
+* https://github.com/ClaasBontus/bitset2
