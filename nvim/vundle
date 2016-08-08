@@ -4,7 +4,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 " All vim plugins must be loaded between the begin() and end()
-call plug#begin('~/.config/nvim/autoload/plug.vim')
+call plug#begin('~/.config/nvim')
 
 " List of plugins
 " let Vundle manage Vundle, required
@@ -14,8 +14,13 @@ Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'dag/vim-fish'
+Plug 'freeo/vim-kalisi'
 
 call plug#end()
+
+colorscheme kalisi
+set background=dark
+set t_Co=256
 
 let g:syntastic_always_populate_loc_list=1
 

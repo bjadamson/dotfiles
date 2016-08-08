@@ -12,3 +12,10 @@ fish/fishd*
 nvim/.netrwhist
 nvim/bundle/
 nvim/undodir/
+nvim/Vundle.vim/
+nvim/ctrlp.vim/
+nvim/jedi-vim/
+nvim/nerdtree/
+nvim/rust.vim/
+nvim/vim-fish/
+nvim/vim-kalisi/
