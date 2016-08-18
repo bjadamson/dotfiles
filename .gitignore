@@ -7,6 +7,7 @@ fish/fishd*
 /vim/.netrwhist
 
 /zsh/zshrc
+/nvim/autoload/
 /nvim/bundle/
 /nvim/undodir/
 nvim/.netrwhist
