@@ -1,0 +1,2 @@
+#!/usr/bin/zsh
+export PATH="$PATH:/home/benjamin/github/build-llvm/bin"
