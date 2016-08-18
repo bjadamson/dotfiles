@@ -38,6 +38,7 @@ def create_directories(prefix, homedir):
     # TL;DR: Just leave the order and shit works. :)
     symlink_dotfile_to_target(prefix, homedir, 'nvim', '.config/nvim/')
     os.system('mkdir -p ~/.nvim/bundle')
+    os.system('mkdir -p ~/.config/nvim/undodir')
 
 def install_everything():
     install.system_dependency('git')
