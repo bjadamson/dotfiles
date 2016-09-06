@@ -1,2 +1,3 @@
 #!/usr/bin/zsh
 export PATH="$PATH:/home/benjamin/github/build-llvm/bin"
+export PATH="$PATH:/home/benjamin/.cargo/bin/"
