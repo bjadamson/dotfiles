@@ -15,3 +15,4 @@
 * https://github.com/KhronosGroup/Vulkan-Hpp
 * https://github.com/ClaasBontus/bitset2
 * https://github.com/lefticus/cppbestpractices
+* https://github.com/oktal/result
