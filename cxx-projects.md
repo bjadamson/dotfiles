@@ -16,6 +16,6 @@
 * https://github.com/ClaasBontus/bitset2
 * https://github.com/lefticus/cppbestpractices
 
-rust-like expected/result
+rust-like expected/result:
 * https://github.com/oktal/result
 * https://github.com/facebook/folly/blob/master/folly/Expected.h
