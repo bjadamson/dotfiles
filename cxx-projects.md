@@ -17,6 +17,9 @@
 * https://github.com/lefticus/cppbestpractices
 * https://github.com/nlohmann/json
 
+CHAR*  template params:
+* https://github.com/irrequietus/typestring
+
 rust-like expected/result:
 * https://github.com/oktal/result
 * https://github.com/facebook/folly/blob/master/folly/Expected.h
