@@ -17,7 +17,7 @@
 * https://github.com/lefticus/cppbestpractices
 * https://github.com/nlohmann/json
 
-CHAR*  template params:
+char[]  template params:
 * https://github.com/irrequietus/typestring
 
 rust-like expected/result:
