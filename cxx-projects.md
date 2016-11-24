@@ -17,6 +17,8 @@
 * https://github.com/lefticus/cppbestpractices
 * https://github.com/nlohmann/json
 
+https://github.com/nothings/single_file_libs
+
 char[]  template params:
 * https://github.com/irrequietus/typestring
 
