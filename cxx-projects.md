@@ -16,6 +16,7 @@
 * https://github.com/ClaasBontus/bitset2
 * https://github.com/lefticus/cppbestpractices
 * https://github.com/nlohmann/json
+* https://github.com/Enhex/phantom_type
 
 https://github.com/nothings/single_file_libs
 
